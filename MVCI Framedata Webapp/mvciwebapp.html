@@ -2,20 +2,38 @@
 <html>
 <head>
 	<title>MVC:I Frame Data</title>
-	<script src="javascript.js"></script>
 	<script src="jquery-3.2.1.min.js"></script>
+	<script src="mvci_externjs.js"></script>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" >
 	<link href='https://fonts.googleapis.com/css?family=Exo' rel='stylesheet'>
 	<link href='mvci_css.css' rel='stylesheet'>
+	
+	<script>
+	$(document).ready(function(){
+		$("#charFrameData").change(function(){
+			$("h1").animate({
+				fontSize: '30px',
+				margin: '5'
+			});
+			$("h2").animate({
+				fontSize: '20px',
+				margin: '5'
+			});
+			$(".main_container").animate({
+				padding: '0'
+			});
+		});
+	});
+	</script>
 </head>
 <body>
 
 <div class="main_container">
 	<h1>MvC:I Frame Data</h1>
 	<h2>Select your team (OPTIONAL)</h2>
-	<select id="charSelect1" onmousedown="staticDropDownSize(this)" onchange="charSelected('charSelect1', 'charSelect2')">
+	<select id="charSelect1" onchange="charSelected('charSelect1', 'charSelect2')">
 		<option value="">[First Character]</option>
 		<option value="arthur">Arthur</option>
 		<option value="black_panther">Black Panther</option>
@@ -52,7 +70,7 @@
 		<option value="zero">Zero</option>
 	</select>
 	
-	<select id="charSelect2" onmousedown="staticDropDownSize(this)" onchange="charSelected('charSelect2', 'charSelect1')">
+	<select id="charSelect2" onchange="charSelected('charSelect2', 'charSelect1')">
 		<option value="">[Second Character]</option>
 		<option value="arthur">Arthur</option>
 		<option value="black_panther">Black Panther</option>
@@ -88,7 +106,7 @@
 		<option value="x">X</option>
 		<option value="zero">Zero</option>
 	</select>
-
+	
 	<h2>Select a character to view frame data for</h2>
 	<select id="charFrameData">
 		<option value=""></option>
