@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MVC:I Frame Data</title>
+	<script src="javascript.js"></script>
+	<script src="jquery-3.2.1.min.js"></script>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link href='https://fonts.googleapis.com/css?family=Exo' rel='stylesheet'>
+	<link href='mvci_css.css' rel='stylesheet'>
+</head>
+<body>
+
+<div class="main_container">
+	<h1>MvC:I Frame Data</h1>
+	<h2>Select your team (OPTIONAL)</h2>
+	<select id="charSelect1" onmousedown="staticDropDownSize(this)" onchange="charSelected('charSelect1', 'charSelect2')">
+		<option value="">[First Character]</option>
+		<option value="arthur">Arthur</option>
+		<option value="black_panther">Black Panther</option>
+		<option value="captain_america">Captain America</option>
+		<option value="captain_marvel">Captain Marvel</option>
+		<option value="chris">Chris</option>
+		<option value="chunli">Chun-li</option>
+		<option value="dante">Dante</option>
+		<option value="doctor_strange">Doctor Strange</option>
+		<option value="dormammu">Dormammu</option>
+		<option value="firebrand">Firebrand</option>
+		<option value="frank_west">Frank West</option>
+		<option value="gamora">Gamora</option>
+		<option value="ghost_rider">Ghost Rider</option>
+		<option value="haggar">Haggar</option>
+		<option value="hawkeye">Hawkeye</option>
+		<option value="hulk">Hulk</option>
+		<option value="iron_man">Iron Man</option>
+		<option value="jedah">Jedah</option>
+		<option value="monster_hunter">Monster Hunter</option>
+		<option value="morrigan">Morrigan</option>
+		<option value="nemesis">Nemesis</option>
+		<option value="nova">Nova</option>
+		<option value="rocket_raccoon">Rocket Raccoon</option>
+		<option value="ryu">Ryu</option>
+		<option value="sigma">Sigma</option>
+		<option value="spencer">Spencer</option>
+		<option value="spiderman">Spiderman</option>
+		<option value="strider_hiryu">Strider Hiryu</option>
+		<option value="thanos">Thanos</option>
+		<option value="thor">Thor</option>
+		<option value="ultron">Ultron</option>
+		<option value="x">X</option>
+		<option value="zero">Zero</option>
+	</select>
+	
+	<select id="charSelect2" onmousedown="staticDropDownSize(this)" onchange="charSelected('charSelect2', 'charSelect1')">
+		<option value="">[Second Character]</option>
+		<option value="arthur">Arthur</option>
+		<option value="black_panther">Black Panther</option>
+		<option value="captain_america">Captain America</option>
+		<option value="captain_marvel">Captain Marvel</option>
+		<option value="chris">Chris</option>
+		<option value="chunli">Chun-li</option>
+		<option value="dante">Dante</option>
+		<option value="doctor_strange">Doctor Strange</option>
+		<option value="dormammu">Dormammu</option>
+		<option value="firebrand">Firebrand</option>
+		<option value="frank_west">Frank West</option>
+		<option value="gamora">Gamora</option>
+		<option value="ghost_rider">Ghost Rider</option>
+		<option value="haggar">Haggar</option>
+		<option value="hawkeye">Hawkeye</option>
+		<option value="hulk">Hulk</option>
+		<option value="iron_man">Iron Man</option>
+		<option value="jedah">Jedah</option>
+		<option value="monster_hunter">Monster Hunter</option>
+		<option value="morrigan">Morrigan</option>
+		<option value="nemesis">Nemesis</option>
+		<option value="nova">Nova</option>
+		<option value="rocket_raccoon">Rocket Raccoon</option>
+		<option value="ryu">Ryu</option>
+		<option value="sigma">Sigma</option>
+		<option value="spencer">Spencer</option>
+		<option value="spiderman">Spiderman</option>
+		<option value="strider_hiryu">Strider Hiryu</option>
+		<option value="thanos">Thanos</option>
+		<option value="thor">Thor</option>
+		<option value="ultron">Ultron</option>
+		<option value="x">X</option>
+		<option value="zero">Zero</option>
+	</select>
+
+	<h2>Select a character to view frame data for</h2>
+	<select id="charFrameData">
+		<option value=""></option>
+		<option value="arthur">Arthur</option>
+		<option value="black_panther">Black Panther</option>
+		<option value="captain_america">Captain America</option>
+		<option value="captain_marvel">Captain Marvel</option>
+		<option value="chris">Chris</option>
+		<option value="chunli">Chun-li</option>
+		<option value="dante">Dante</option>
+		<option value="doctor_strange">Doctor Strange</option>
+		<option value="dormammu">Dormammu</option>
+		<option value="firebrand">Firebrand</option>
+		<option value="frank_west">Frank West</option>
+		<option value="gamora">Gamora</option>
+		<option value="ghost_rider">Ghost Rider</option>
+		<option value="haggar">Haggar</option>
+		<option value="hawkeye">Hawkeye</option>
+		<option value="hulk">Hulk</option>
+		<option value="iron_man">Iron Man</option>
+		<option value="jedah">Jedah</option>
+		<option value="monster_hunter">Monster Hunter</option>
+		<option value="morrigan">Morrigan</option>
+		<option value="nemesis">Nemesis</option>
+		<option value="nova">Nova</option>
+		<option value="rocket_raccoon">Rocket Raccoon</option>
+		<option value="ryu">Ryu</option>
+		<option value="sigma">Sigma</option>
+		<option value="spencer">Spencer</option>
+		<option value="spiderman">Spiderman</option>
+		<option value="strider_hiryu">Strider Hiryu</option>
+		<option value="thanos">Thanos</option>
+		<option value="thor">Thor</option>
+		<option value="ultron">Ultron</option>
+		<option value="x">X</option>
+		<option value="zero">Zero</option>
+	</select>
+</div>
+
+</body>
+</html>

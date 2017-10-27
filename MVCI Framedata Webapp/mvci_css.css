@@ -1,0 +1,26 @@
+body, select, option {
+	font-family: "exo";
+}
+
+body {
+	text-align: center;
+}
+
+h1 {
+	font-size: 100px;
+}
+
+select {
+	width: 15%;
+	top: 100%;
+	color:black;
+}
+
+option {
+	top: 100%;
+	color: black;
+}
+
+.main_container {
+	padding: 180px 0;
+}
