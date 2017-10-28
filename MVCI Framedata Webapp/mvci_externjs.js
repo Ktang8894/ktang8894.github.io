@@ -30,7 +30,12 @@ function characterNameAnim() {
 }
 
 function tableLoadAnim() {
-	$("#frameDataContainer").fadeOut("fast", function(){
-		$("#frameDataContainer").slideDown("slow");
-	});
+	if ($("#charFrameData").find(":selected").text() == "") {
+		$("#frameDataContainer").fadeOut("fast");
+	}
+	else {
+		$("#frameDataContainer").fadeOut("fast", function(){
+			$("#frameDataContainer").slideDown("slow");
+		});
+	}
 }
