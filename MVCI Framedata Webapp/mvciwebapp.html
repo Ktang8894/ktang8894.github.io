@@ -3,25 +3,15 @@
 <head>
 	<title>MVC:I Frame Data</title>
 	<script src="jquery-3.2.1.min.js"></script>
-	<script src="mvci_externjs.js"></script>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" >
 	<link href='https://fonts.googleapis.com/css?family=Exo' rel='stylesheet'>
 	<link href='mvci_css.css' rel='stylesheet'>
-	<script src="mvci_externjs.js"></script>
-	<script>
-	$(document).ready(function(){
-		$("#charFrameData").change(function(){
-			mainModuleAnim();
-			characterNameAnim();
-			tableLoadAnim();
-		});
-	});
-	</script>
 </head>
 <body>
-
+<script src="mvci_externjs.js"></script>
 <div class="mainContainer">
 	<h1 id="header">MvC:I Frame Data</h1>
 	<h2>Select your team (OPTIONAL)</h2>
@@ -140,7 +130,7 @@
 
 <h1 id="selectedCharName"></h1>
 <div id="frameDataContainer" style="display:none">
-	<table id="frameData" class="table table-striped">
+	<!-- <table id="frameData" class="table table-striped">
 		<thead>
 			<tr>
 				<th>Move Name</th>
@@ -182,7 +172,7 @@
 			<td>TestVal</td>
 			<td>TestVal</td>
 		</tr>
-	</table>
+	</table> -->
 </div>
 </body>
 </html>
