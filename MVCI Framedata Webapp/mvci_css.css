@@ -21,6 +21,11 @@ option {
 	color: black;
 }
 
-.main_container {
+.mainContainer {
 	padding: 180px 0;
 }
+
+td, th {
+    text-align: center;
+}
+

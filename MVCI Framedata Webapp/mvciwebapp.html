@@ -9,32 +9,21 @@
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" >
 	<link href='https://fonts.googleapis.com/css?family=Exo' rel='stylesheet'>
 	<link href='mvci_css.css' rel='stylesheet'>
-	
+	<script src="mvci_externjs.js"></script>
 	<script>
 	$(document).ready(function(){
 		$("#charFrameData").change(function(){
-			$("h1").animate({
-				fontSize: '30px',
-				margin: '5'
-			});
-			$("h2").animate({
-				fontSize: '20px',
-				margin: '5'
-			});
-			$(".main_container").animate({
-				padding: '0'
-			});
-			$("select").animate({
-				width: '150px'
-			});
+			mainModuleAnim();
+			characterNameAnim();
+			tableLoadAnim();
 		});
 	});
 	</script>
 </head>
 <body>
 
-<div class="main_container">
-	<h1>MvC:I Frame Data</h1>
+<div class="mainContainer">
+	<h1 id="header">MvC:I Frame Data</h1>
 	<h2>Select your team (OPTIONAL)</h2>
 	<select id="charSelect1" onchange="charSelected('charSelect1', 'charSelect2')">
 		<option value="">[First Character]</option>
@@ -149,5 +138,49 @@
 	</select>
 </div>
 
+<h1 id="selectedCharName"></h1>
+<div id="frameDataContainer" style="display:none">
+	<table id="frameData" class="table table-striped">
+		<tr>
+			<th>Move Name</th>
+			<th>Input</th>
+			<th>Damage</th>
+			<th>Startup</th>
+			<th>Active</th>
+			<th>Recovery</th>
+			<th>Block Advantage</th>
+			<th>Hit Advantage</th>
+			<th>Counterhit Advantage</th>
+			<th>Punishable by First Character</th>
+			<th>Punishable by Second Character</th>
+		</tr>
+		<tr>
+			<td>TestVal</td>
+			<td>TestVal</td>
+			<td>TestVal</td>
+			<td>TestVal</td>
+			<td>TestVal</td>
+			<td>TestVal</td>
+			<td>TestVal</td>
+			<td>TestVal</td>
+			<td>TestVal</td>
+			<td>TestVal</td>
+			<td>TestVal</td>
+		</tr>
+		<tr>
+			<td>TestVal</td>
+			<td>TestVal</td>
+			<td>TestVal</td>
+			<td>TestVal</td>
+			<td>TestVal</td>
+			<td>TestVal</td>
+			<td>TestVal</td>
+			<td>TestVal</td>
+			<td>TestVal</td>
+			<td>TestVal</td>
+			<td>TestVal</td>
+		</tr>
+	</table>
+</div>
 </body>
 </html>
