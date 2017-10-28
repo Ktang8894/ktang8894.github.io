@@ -1,21 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>MVC:I Frame Data</title>
-	<script src="jquery-3.2.1.min.js"></script>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+	
+	<title>MVC:I Frame Data</title>
+	
+	<script src="jquery-3.2.1.min.js"></script>
+	<script src="http://d3js.org/d3.v3.min.js"></script>
+	
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" >
 	<link href='https://fonts.googleapis.com/css?family=Exo' rel='stylesheet'>
 	<link href='mvci_css.css' rel='stylesheet'>
 </head>
+
 <body>
 <script src="mvci_externjs.js"></script>
+
 <div class="mainContainer">
 	<h1 id="header">MvC:I Frame Data</h1>
 	<h2>Select your team (OPTIONAL)</h2>
-	<select id="charSelect1" onchange="charSelected('charSelect1', 'charSelect2')">
+	<select id="charSelect1" onchange="teamCharSelected('charSelect1', 'charSelect2')">
 		<option value="">[First Character]</option>
 		<option value="arthur">Arthur</option>
 		<option value="black_panther">Black Panther</option>
@@ -52,7 +57,7 @@
 		<option value="zero">Zero</option>
 	</select>
 	
-	<select id="charSelect2" onchange="charSelected('charSelect2', 'charSelect1')">
+	<select id="charSelect2" onchange="teamCharSelected('charSelect2', 'charSelect1')">
 		<option value="">[Second Character]</option>
 		<option value="arthur">Arthur</option>
 		<option value="black_panther">Black Panther</option>
@@ -130,49 +135,6 @@
 
 <h1 id="selectedCharName"></h1>
 <div id="frameDataContainer" style="display:none">
-	<!-- <table id="frameData" class="table table-striped">
-		<thead>
-			<tr>
-				<th>Move Name</th>
-				<th>Input</th>
-				<th>Damage</th>
-				<th>Startup</th>
-				<th>Active</th>
-				<th>Recovery</th>
-				<th>Block Advantage</th>
-				<th>Hit Advantage</th>
-				<th>Counterhit Advantage</th>
-				<th>Punishable by First Character</th>
-				<th>Punishable by Second Character</th>
-			</tr>
-		</thead>
-		<tr>
-			<td>TestVal</td>
-			<td>TestVal</td>
-			<td>TestVal</td>
-			<td>TestVal</td>
-			<td>TestVal</td>
-			<td>TestVal</td>
-			<td>TestVal</td>
-			<td>TestVal</td>
-			<td>TestVal</td>
-			<td>TestVal</td>
-			<td>TestVal</td>
-		</tr>
-		<tr>
-			<td>TestVal</td>
-			<td>TestVal</td>
-			<td>TestVal</td>
-			<td>TestVal</td>
-			<td>TestVal</td>
-			<td>TestVal</td>
-			<td>TestVal</td>
-			<td>TestVal</td>
-			<td>TestVal</td>
-			<td>TestVal</td>
-			<td>TestVal</td>
-		</tr>
-	</table> -->
 </div>
 </body>
 </html>

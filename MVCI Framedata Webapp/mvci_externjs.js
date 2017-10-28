@@ -3,6 +3,7 @@ $(document).ready(function(){
 			mainModuleAnim();
 			characterNameAnim();
 			tableLoadAnim();
+			updateTable();
 		});
 });
 
@@ -23,22 +24,25 @@ function mainModuleAnim() {
 	});
 }
 
-function charSelected(selectId1, selectId2) {
+function teamCharSelected(selectId1, selectId2) {
 	if (document.getElementById(selectId1).value == document.getElementById(selectId2).value) {
 		document.getElementById(selectId2).selectedIndex = 0;
 	}
 }
 
+function getCharacter() {
+	return $("#charFrameData").find(":selected").text();
+}
+
 function characterNameAnim() {
 	$("#selectedCharName").fadeOut("fast", function() {
-			var charName = $("#charFrameData").find(":selected").text();
-			$("#selectedCharName").text(charName);
+			$("#selectedCharName").text(getCharacter());
 			$("#selectedCharName").fadeIn("slow");
 	});
 }
 
 function tableLoadAnim() {
-	if ($("#charFrameData").find(":selected").text() == "") {
+	if (getCharacter() == "") {
 		$("#frameDataContainer").fadeOut("fast");
 	}
 	else {
@@ -48,39 +52,57 @@ function tableLoadAnim() {
 	}
 }
 
-//d3 Script
+function getTableString() {
+	var str = "https://raw.githubusercontent.com/Ktang8894/ktang8894.github.io/master/MVCI%20Framedata%20Webapp/" + getCharacter() + ".csv";
+	if (getCharacter() == "") {
+		return "https://raw.githubusercontent.com/Ktang8894/ktang8894.github.io/master/MVCI%20Framedata%20Webapp/TestFrameData.csv"
+	}
+	return str;
+}
+
+//d3 Table
 var tabulate = function (data,columns) {
-  var table = d3.select('#frameDataContainer').append('table')
+	var table = d3.select('#frameDataContainer').append('table')
+		.classed("table table-striped", true);
+	
 	var thead = table.append('thead')
 	var tbody = table.append('tbody')
 
 	thead.append('tr')
-	  .selectAll('th')
-	    .data(columns)
-	    .enter()
-	  .append('th')
-	    .text(function (d) { return d })
+		.selectAll('th')
+		.data(columns)
+		.enter()
+		.append('th')
+		.text(function (d) { return d })
 
 	var rows = tbody.selectAll('tr')
-	    .data(data)
-	    .enter()
-	  .append('tr')
+		.data(data)
+		.enter()
+		.append('tr')
 
 	var cells = rows.selectAll('td')
-	    .data(function(row) {
-	    	return columns.map(function (column) {
-	    		return { column: column, value: row[column] }
-	      })
-      })
-      .enter()
-    .append('td')
-      .text(function (d) { return d.value })
+		.data(function(row) {
+			return columns.map(function (column) {
+				return { column: column, value: row[column] }
+			})
+		})
+		.enter()
+		.append('td')
+		.text(function (d) { return d.value })
 
-  return table;
+	return table;
 }
 
-d3.csv("TestFrameData.csv",function (data) {
+function updateTable() {
+	d3.csv(getTableString(), function (data) {
+		var columns = ['Move Name','Input','Damage','Startup', 'Active', 'Recovery', 'Block Advantage', 
+		'Hit Advantage', 'Counterhit Advantage', 'Punishable by First Character', 'Punishable by Second Character']
+		tabulate(data,columns)
+	})
+}
+
+d3.csv(getTableString(), function (data) {
 	var columns = ['Move Name','Input','Damage','Startup', 'Active', 'Recovery', 'Block Advantage', 
 	'Hit Advantage', 'Counterhit Advantage', 'Punishable by First Character', 'Punishable by Second Character']
-  tabulate(data,columns)
+	tabulate(data,columns)
 })
