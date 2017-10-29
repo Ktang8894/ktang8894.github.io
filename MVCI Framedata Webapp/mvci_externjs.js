@@ -9,27 +9,47 @@ $(document).ready(function(){
 	
 });
 
+/*This needs to be heavily revised, and have the left edge of the 
+window used as a reference point instead of hardcoded units */
+function transformToBanner() {
+	$("select").css("z-index", "1");
+	$("#mainContainer").css("top", "5px");
+	$("#mainContainer").css("position", "sticky");
+	$("#mainContainer").css("height", "30px");
+	
+	$("#headerText").animate({
+		right: '820px'
+	});
+	$("#selectTeam").animate({
+		top: '-30px',
+		right: '510px'
+	});
+	$("#charSelect1").animate({
+		top: '-58px',
+		right: '217px'
+	});
+	$("#charSelect2").animate({
+		top: '-58px',
+		right: '217px'
+	});
+	$("#selectFrameData").animate({
+		top: '-85px',
+		left: '180px'
+	});
+	$("#charFrameData").animate({
+		top: '-113px',
+		left: '450px'
+	});
+}
+
 $(window).scroll(function() {
-	if ($(window).scrollTop() != 0) {
-		/* $("#header").animate({
-			right: '820px'
-		});
-		$("#selectTeam").animate({
-			bottom: '30px',
-			right: '500px'
-		});
-		$("#charSelect1").animate({
-			bottom: '130px',
-			right: '620px'
-		});
-		$("#charSelect2").animate({
-			right: '620px'
-		}); */
+	if ($(window).scrollTop() != 0) {	
+		transformToBanner();
 	}
 });
 
 function mainModuleAnim() {
-	$("#header").animate({
+	$("#headerText").animate({
 		fontSize: '30px',
 		margin: '5'
 	});

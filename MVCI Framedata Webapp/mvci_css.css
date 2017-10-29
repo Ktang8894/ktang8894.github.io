@@ -4,6 +4,7 @@ body, select, option {
 
 h1 {
 	font-size: 100px;
+	text-align: center;
 }
 
 select {
@@ -19,18 +20,19 @@ option {
 
 #mainContainer{
 	padding: 180px 0;
-	background-color: white;
 	text-align: center;
 	position: relative;
+	background-color: white;
 }
 
-#header, #charSelect1, #charSelect2, #selectTeam, #selectFrameData {
+.header {
 	text-align: center;
 	position: relative;
+	top: 0px;
 }
 
 th {
-	top: 0;
+	top: 38px;
 	position: sticky;
 	background-color: grey;
 	color: white;
