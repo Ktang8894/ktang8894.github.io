@@ -1,10 +1,31 @@
 $(document).ready(function(){
-		$("#charFrameData").change(function(){
-			mainModuleAnim();
-			characterNameAnim();
-			tableLoadAnim();
-			getNewTable();
+	$("#charFrameData").change(function(){
+		mainModuleAnim();
+		characterNameAnim();
+		tableLoadAnim();
+		getNewTable();
+	});
+	
+	
+});
+
+$(window).scroll(function() {
+	if ($(window).scrollTop() != 0) {
+		/* $("#header").animate({
+			right: '820px'
 		});
+		$("#selectTeam").animate({
+			bottom: '30px',
+			right: '500px'
+		});
+		$("#charSelect1").animate({
+			bottom: '130px',
+			right: '620px'
+		});
+		$("#charSelect2").animate({
+			right: '620px'
+		}); */
+	}
 });
 
 function mainModuleAnim() {
@@ -16,7 +37,7 @@ function mainModuleAnim() {
 		fontSize: '20px',
 		margin: '5'
 	});
-	$(".mainContainer").animate({			
+	$("#mainContainer").animate({			
 		padding: '0'
 	});
 	$("select").animate({
@@ -66,9 +87,9 @@ var tabulate = function (data,columns) {
 	var table = d3.select('#frameDataContainer').append('table')
 		.classed("table table-striped", true);
 	
-	var thead = table.append('thead')
+	var thead = table.append('thead')			
 	var tbody = table.append('tbody')
-
+	
 	thead.append('tr')
 		.selectAll('th')
 		.data(columns)

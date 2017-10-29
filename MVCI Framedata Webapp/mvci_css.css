@@ -2,10 +2,6 @@ body, select, option {
 	font-family: "exo";
 }
 
-body {
-	text-align: center;
-}
-
 h1 {
 	font-size: 100px;
 }
@@ -21,8 +17,23 @@ option {
 	color: black;
 }
 
-.mainContainer {
+#mainContainer{
 	padding: 180px 0;
+	background-color: white;
+	text-align: center;
+	position: relative;
+}
+
+#header, #charSelect1, #charSelect2, #selectTeam, #selectFrameData {
+	text-align: center;
+	position: relative;
+}
+
+th {
+	top: 0;
+	position: sticky;
+	background-color: grey;
+	color: white;
 }
 
 td, th {

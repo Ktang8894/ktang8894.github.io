@@ -8,18 +8,20 @@
 	
 	<script src="jquery-3.2.1.min.js"></script>
 	<script src="http://d3js.org/d3.v3.min.js"></script>
+	<script src="jquery.floatThead.js"></script>
 	
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" >
 	<link href='https://fonts.googleapis.com/css?family=Exo' rel='stylesheet'>
 	<link href='mvci_css.css' rel='stylesheet'>
+	
 </head>
 
 <body>
 <script src="mvci_externjs.js"></script>
 
-<div class="mainContainer">
-	<h1 id="header">MvC:I Frame Data</h1>
-	<h2>Select your team (OPTIONAL)</h2>
+<div id="mainContainer">
+	<h1 id="header" >MvC:I Frame Data</h1>
+	<h2 id="selectTeam">Select your team (OPTIONAL)</h2>
 	<select id="charSelect1" onchange="teamCharSelected('charSelect1', 'charSelect2')">
 		<option value="">[First Character]</option>
 		<option value="arthur">Arthur</option>
@@ -94,7 +96,7 @@
 		<option value="zero">Zero</option>
 	</select>
 	
-	<h2>Select a character to view frame data for</h2>
+	<h2 id="selectFrameData">Select a character to view frame data for</h2>
 	<select id="charFrameData">
 		<option value=""></option>
 		<option value="arthur">Arthur</option>
@@ -131,9 +133,10 @@
 		<option value="x">X</option>
 		<option value="zero">Zero</option>
 	</select>
+	
+	<h1 id="selectedCharName"></h1>
 </div>
 
-<h1 id="selectedCharName"></h1>
 <div id="frameDataContainer" style="display:none">
 </div>
 </body>
