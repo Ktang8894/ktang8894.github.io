@@ -3,7 +3,7 @@ $(document).ready(function(){
 			mainModuleAnim();
 			characterNameAnim();
 			tableLoadAnim();
-			updateTable();
+			getNewTable();
 		});
 });
 
@@ -47,7 +47,7 @@ function tableLoadAnim() {
 	}
 	else {
 		$("#frameDataContainer").fadeOut("fast", function(){
-			$("#frameDataContainer").slideDown("slow");
+			$("#frameDataContainer").fadeIn("slow");
 		});
 	}
 }
@@ -62,6 +62,7 @@ function getTableString() {
 
 //d3 Table
 var tabulate = function (data,columns) {
+	$("table").remove();
 	var table = d3.select('#frameDataContainer').append('table')
 		.classed("table table-striped", true);
 	
@@ -93,16 +94,10 @@ var tabulate = function (data,columns) {
 	return table;
 }
 
-function updateTable() {
+function getNewTable() {
 	d3.csv(getTableString(), function (data) {
 		var columns = ['Move Name','Input','Damage','Startup', 'Active', 'Recovery', 'Block Advantage', 
 		'Hit Advantage', 'Counterhit Advantage', 'Punishable by First Character', 'Punishable by Second Character']
 		tabulate(data,columns)
 	})
 }
-
-d3.csv(getTableString(), function (data) {
-	var columns = ['Move Name','Input','Damage','Startup', 'Active', 'Recovery', 'Block Advantage', 
-	'Hit Advantage', 'Counterhit Advantage', 'Punishable by First Character', 'Punishable by Second Character']
-	tabulate(data,columns)
-})
