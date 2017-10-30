@@ -1,50 +1,31 @@
 $(document).ready(function(){
 	$("#charFrameData").change(function(){
-		mainModuleAnim();
+		var moved = false;
+		if (moved == false) {
+			moveToNav();
+			moved = true;
+		}
+		//mainModuleAnim();
 		characterNameAnim();
 		tableLoadAnim();
 		getNewTable();
 	});
-	
-	
 });
 
-/*This needs to be heavily revised, and have the left edge of the 
-window used as a reference point instead of hardcoded units */
-function transformToBanner() {
-	$("select").css("z-index", "1");
-	$("#mainContainer").removeClass("container").addClass("containerTop");
+function moveToNav(){
+	$("#headerText").remove();
+	$("#selectTeam").remove();
+	$("#selectFrameData").remove();
 	
-	$("#headerText").animate({
-		right: '820px'
-	});
-	$("#selectTeam").animate({
-		top: '-30px',
-		right: '510px'
-	});
-	$("#charSelect1").animate({
-		top: '-58px',
-		right: '217px'
-	});
-	$("#charSelect2").animate({
-		top: '-58px',
-		right: '217px'
-	});
-	$("#selectFrameData").animate({
-		top: '-85px',
-		left: '180px'
-	});
-	$("#charFrameData").animate({
-		top: '-113px',
-		left: '450px'
+	$("#charFrameData").appendTo("#charFD");
+	$("#charSelect1").appendTo("#team");
+	$("#charSelect2").appendTo("#team");
+	$("select").addClass("navSelect");
+	
+	$("#mainContainer").animate({			
+		padding: '0'
 	});
 }
-
-$(window).scroll(function() {
-	if ($(window).scrollTop() != 0) {	
-		transformToBanner();
-	}
-});
 
 function mainModuleAnim() {
 	$("#headerText").animate({

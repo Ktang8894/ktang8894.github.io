@@ -9,8 +9,6 @@ h1 {
 
 select {
 	width: 15%;
-	top: 100%;
-	color:black;
 }
 
 option {
@@ -18,19 +16,11 @@ option {
 	color: black;
 }
 
+/* Homepage */
 .container{
 	padding: 180px 0;
 	text-align: center;
 	position: relative;
-	background-color: white;
-}
-
-.containerTop{
-	top: 5px;
-	height: 30px;
-	position: sticky;
-	padding: 180px 0;
-	text-align: center;
 	background-color: white;
 }
 
@@ -40,8 +30,38 @@ option {
 	top: 0px;
 }
 
+/* Table Page */
+#selectedCharName {
+	left: 10px;
+	top: -10px;
+	position: fixed;
+}
+
+.navSelect{
+	width: 160px;
+	top: -35px;
+	left: 175px;
+}
+
+#charFD {
+	position: fixed;
+	top: -10px;
+	left: 300px;
+}
+
+#team {
+	position: fixed;
+	top: -10px;
+	left: 900px;
+}
+
+/* .navText {
+	display: inline;
+	top: 10px;
+} */
+
 th {
-	top: 38px;
+	top: 43px;
 	position: sticky;
 	background-color: grey;
 	color: white;
@@ -50,4 +70,5 @@ th {
 td, th {
     text-align: center;
 }
+
 
