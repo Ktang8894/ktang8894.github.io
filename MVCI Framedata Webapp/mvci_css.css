@@ -18,10 +18,19 @@ option {
 	color: black;
 }
 
-#mainContainer{
+.container{
 	padding: 180px 0;
 	text-align: center;
 	position: relative;
+	background-color: white;
+}
+
+.containerTop{
+	top: 5px;
+	height: 30px;
+	position: sticky;
+	padding: 180px 0;
+	text-align: center;
 	background-color: white;
 }
 

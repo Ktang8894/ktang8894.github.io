@@ -13,9 +13,7 @@ $(document).ready(function(){
 window used as a reference point instead of hardcoded units */
 function transformToBanner() {
 	$("select").css("z-index", "1");
-	$("#mainContainer").css("top", "5px");
-	$("#mainContainer").css("position", "sticky");
-	$("#mainContainer").css("height", "30px");
+	$("#mainContainer").removeClass("container").addClass("containerTop");
 	
 	$("#headerText").animate({
 		right: '820px'
