@@ -21,9 +21,16 @@ function moveToNav(){
 	$("#charSelect1").appendTo("#team");
 	$("#charSelect2").appendTo("#team");
 	$("select").addClass("navSelect");
+	$("#charFrameData").addClass("charFrameData_nav");
+	$("#charSelect1").addClass("charSelect1_nav");
+	$("#charSelect2").addClass("charSelect2_nav");
+	$("#siteNav").fadeOut("fast", function () {
+		$("#siteNav").css("visibility", "visible");
+	});
+	$("#siteNav").fadeIn("fast");
 	
 	$("#mainContainer").animate({			
-		padding: '0'
+		padding: '24'
 	});
 }
 

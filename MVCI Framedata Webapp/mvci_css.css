@@ -31,6 +31,10 @@ option {
 }
 
 /* Table Page */
+#siteNav {
+	visibility: hidden;
+}
+
 #selectedCharName {
 	left: 10px;
 	top: -10px;
@@ -52,16 +56,29 @@ option {
 #team {
 	position: fixed;
 	top: -10px;
-	left: 900px;
+	left: 700px;
 }
 
-/* .navText {
-	display: inline;
-	top: 10px;
-} */
+.charFrameData_nav {
+	position: fixed;
+	top: 15px;
+	left: 475px;
+}
+
+.charSelect1_nav {
+	position: fixed;
+	top: 15px;
+	left: 790px;
+}
+
+.charSelect2_nav {
+	position: fixed;
+	top: 15px;
+	left: 955px;
+}
 
 th {
-	top: 43px;
+	top: 50px;
 	position: sticky;
 	background-color: grey;
 	color: white;
