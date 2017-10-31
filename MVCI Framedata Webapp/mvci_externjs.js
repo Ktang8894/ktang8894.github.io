@@ -123,7 +123,7 @@ var tabulate = function (data,columns) {
 
 function getNewTable() {
 	d3.csv(getTableString(), function (data) {
-		var columns = ['Move Name','Input','Damage','Startup', 'Active', 'Recovery', 'Block Advantage', 
+		var columns = ['Move Name','Input','Damage','Startup', 'Active', 'Recovery', 'Total', 'Block Advantage', 
 		'Hit Advantage', 'Counterhit Advantage', 'Punishable by First Character', 'Punishable by Second Character']
 		tabulate(data,columns)
 	})
