@@ -1,14 +1,13 @@
 $(document).ready(function(){
+	var moved = false;
 	$("#charFrameData").change(function(){
-		var moved = false;
 		if (moved == false) {
 			moveToNav();
 			moved = true;
 		}
-		//mainModuleAnim();
 		characterNameAnim();
 		tableLoadAnim();
-		getNewTable();
+		//getNewTable();
 	});
 });
 
@@ -31,23 +30,6 @@ function moveToNav(){
 	
 	$("#mainContainer").animate({			
 		padding: '24'
-	});
-}
-
-function mainModuleAnim() {
-	$("#headerText").animate({
-		fontSize: '30px',
-		margin: '5'
-	});
-	$("h2").animate({
-		fontSize: '20px',
-		margin: '5'
-	});
-	$("#mainContainer").animate({			
-		padding: '0'
-	});
-	$("select").animate({
-		width: '150px'
 	});
 }
 

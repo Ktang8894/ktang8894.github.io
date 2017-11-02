@@ -1,4 +1,4 @@
-MoveName,Input,Damage,Startup,Active,Recovery,Total,BlockAdvantage,HitAdvantage,CounterhitAdvantage
+Move Name,Input,Damage,Startup,Active,Recovery,Total,Block Advantage,Hit Advantage,Counter hitAdvantage
 Dash (Forward),5PP,,19,0,0,19,,,
 Dash (Backward),4PP,,33,0,0,33,,,
 Air-Dash (Forward),8>PP,,39,0,0,39,,,
