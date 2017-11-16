@@ -7,9 +7,59 @@ $(document).ready(function(){
 		}
 		characterNameAnim();
 		tableLoadAnim();
-		//getNewTable();
+		getTable();
 	});
 });
+
+function getTable(){
+	angular.element($("#angularDiv")).scope().update(getCharacterVal());
+}
+
+function listNames(){
+	var names = [
+		{"name":"Arthur","value":"Arthur"},
+		{"name":"Black Panther","value":"BlackPanther"},
+		{"name":"Captain America","value":"CaptainAmerica"},
+		{"name":"Captain Marvel","value":"CaptainMarvel"},
+		{"name":"Chris","value":"Chris"},
+		{"name":"Chun-li","value":"ChunLi"},
+		{"name":"Dante","value":"Dante"},
+		{"name":"Doctor Strange","value":"DoctorStrange"},
+		{"name":"Dormammu","value":"Dormammu"},
+		{"name":"Firebrand","value":"Firebrand"},
+		{"name":"Frank West","value":"FrankWest"},
+		{"name":"Gamora","value":"Gamora"},
+		{"name":"Ghost Rider","value":"GhostRider"},
+		{"name":"Haggar","value":"Haggar"},
+		{"name":"Hawkeye","value":"Hawkeye"},
+		{"name":"Hulk","value":"Hulk"},
+		{"name":"Iron Man","value":"IronMan"},
+		{"name":"Jedah","value":"Jedah"},
+		{"name":"Monster Hunter","value":"MonsterHunter"},
+		{"name":"Morrigan","value":"Morrigan"},
+		{"name":"Nemesis","value":"Nemesis"},
+		{"name":"Nova","value":"Nova"},
+		{"name":"Rocket Raccoon","value":"RocketRaccoon"},
+		{"name":"Ryu","value":"Ryu"},
+		{"name":"Sigma","value":"Sigma"},
+		{"name":"Spencer","value":"Spencer"},
+		{"name":"Spiderman","value":"Spiderman"},
+		{"name":"Strider Hiryu","value":"StriderHiryu"},
+		{"name":"Thanos","value":"Thanos"},
+		{"name":"Thor","value":"Thor"},
+		{"name":"Ultron","value":"Ultron"},
+		{"name":"X","value":"X"},
+		{"name":"Zero","value":"Zero"}
+	];
+	var charSelect1 = $("#charSelect1");
+	var charSelect2 = $("#charSelect2");
+	var charFrameData = $("#charFrameData");
+	$.each(names, function() {
+		charSelect1.append($("<option />").val(this.value).text(this.name));
+		charSelect2.append($("<option />").val(this.value).text(this.name));
+		charFrameData.append($("<option />").val(this.value).text(this.name));
+	});
+}
 
 function moveToNav(){
 	$("#headerText").remove();
@@ -43,6 +93,10 @@ function getCharacter() {
 	return $("#charFrameData").find(":selected").text();
 }
 
+function getCharacterVal() {
+	return $("#charFrameData").find(":selected").val();
+}
+
 function characterNameAnim() {
 	$("#selectedCharName").fadeOut("fast", function() {
 			$("#selectedCharName").text(getCharacter());
@@ -59,54 +113,4 @@ function tableLoadAnim() {
 			$("#frameDataContainer").fadeIn("slow");
 		});
 	}
-}
-
-function getTableString() {
-	var str = "https://raw.githubusercontent.com/Ktang8894/ktang8894.github.io/master/MVCI%20Framedata%20Webapp/" + getCharacter() + ".csv";
-	if (getCharacter() == "") {
-		return "https://raw.githubusercontent.com/Ktang8894/ktang8894.github.io/master/MVCI%20Framedata%20Webapp/TestFrameData.csv"
-	}
-	return str;
-}
-
-//d3 Table
-var tabulate = function (data,columns) {
-	$("table").remove();
-	var table = d3.select('#frameDataContainer').append('table')
-		.classed("table table-striped", true);
-	
-	var thead = table.append('thead')			
-	var tbody = table.append('tbody')
-	
-	thead.append('tr')
-		.selectAll('th')
-		.data(columns)
-		.enter()
-		.append('th')
-		.text(function (d) { return d })
-
-	var rows = tbody.selectAll('tr')
-		.data(data)
-		.enter()
-		.append('tr')
-
-	var cells = rows.selectAll('td')
-		.data(function(row) {
-			return columns.map(function (column) {
-				return { column: column, value: row[column] }
-			})
-		})
-		.enter()
-		.append('td')
-		.text(function (d) { return d.value })
-
-	return table;
-}
-
-function getNewTable() {
-	d3.csv(getTableString(), function (data) {
-		var columns = ['Move Name','Input','Damage','Startup', 'Active', 'Recovery', 'Total', 'Block Advantage', 
-		'Hit Advantage', 'Counterhit Advantage', 'Punishable by First Character', 'Punishable by Second Character']
-		tabulate(data,columns)
-	})
 }

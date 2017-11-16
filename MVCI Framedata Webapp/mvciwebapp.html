@@ -7,16 +7,16 @@
 	<title>MVC:I Frame Data</title>
 	
 	<script src="jquery-3.2.1.min.js"></script>
-	<script src="http://d3js.org/d3.v3.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 	
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" >
 	<link href='https://fonts.googleapis.com/css?family=Exo' rel='stylesheet'>
-	<link href='mvci_css.css' rel='stylesheet'>
-	
+	<link href='mvci_css.css' rel='stylesheet'>	
 </head>
 
 <body>
 <script src="mvci_externjs.js"></script>
+
 
 <nav id="siteNav" class="navbar navbar-default navbar-fixed-top affix-top" role="navigation">
 	<h2 id="selectedCharName"></h2>
@@ -28,147 +28,67 @@
 	</span>
 </nav>
 
+<div id="angularDiv" ng-app="app" ng-controller="ctrl">
 <div id="mainContainer" class="container">
 	<h1 id="headerText" class="header">MvC:I Frame Data</h1>
 	<h2 id="selectTeam" class="header">Select your team (OPTIONAL)</h2>
 	<select id="charSelect1" onchange="teamCharSelected('charSelect1', 'charSelect2')">
 		<option value="">[First Character]</option>
-		<option value="arthur">Arthur</option>
-		<option value="black_panther">Black Panther</option>
-		<option value="captain_america">Captain America</option>
-		<option value="captain_marvel">Captain Marvel</option>
-		<option value="chris">Chris</option>
-		<option value="chunli">Chun-li</option>
-		<option value="dante">Dante</option>
-		<option value="doctor_strange">Doctor Strange</option>
-		<option value="dormammu">Dormammu</option>
-		<option value="firebrand">Firebrand</option>
-		<option value="frank_west">Frank West</option>
-		<option value="gamora">Gamora</option>
-		<option value="ghost_rider">Ghost Rider</option>
-		<option value="haggar">Haggar</option>
-		<option value="hawkeye">Hawkeye</option>
-		<option value="hulk">Hulk</option>
-		<option value="iron_man">Iron Man</option>
-		<option value="jedah">Jedah</option>
-		<option value="monster_hunter">Monster Hunter</option>
-		<option value="morrigan">Morrigan</option>
-		<option value="nemesis">Nemesis</option>
-		<option value="nova">Nova</option>
-		<option value="rocket_raccoon">Rocket Raccoon</option>
-		<option value="ryu">Ryu</option>
-		<option value="sigma">Sigma</option>
-		<option value="spencer">Spencer</option>
-		<option value="spiderman">Spiderman</option>
-		<option value="strider_hiryu">Strider Hiryu</option>
-		<option value="thanos">Thanos</option>
-		<option value="thor">Thor</option>
-		<option value="ultron">Ultron</option>
-		<option value="x">X</option>
-		<option value="zero">Zero</option>
 	</select>
+	
 	
 	<select id="charSelect2" onchange="teamCharSelected('charSelect2', 'charSelect1')">
 		<option value="">[Second Character]</option>
-		<option value="arthur">Arthur</option>
-		<option value="black_panther">Black Panther</option>
-		<option value="captain_america">Captain America</option>
-		<option value="captain_marvel">Captain Marvel</option>
-		<option value="chris">Chris</option>
-		<option value="chunli">Chun-li</option>
-		<option value="dante">Dante</option>
-		<option value="doctor_strange">Doctor Strange</option>
-		<option value="dormammu">Dormammu</option>
-		<option value="firebrand">Firebrand</option>
-		<option value="frank_west">Frank West</option>
-		<option value="gamora">Gamora</option>
-		<option value="ghost_rider">Ghost Rider</option>
-		<option value="haggar">Haggar</option>
-		<option value="hawkeye">Hawkeye</option>
-		<option value="hulk">Hulk</option>
-		<option value="iron_man">Iron Man</option>
-		<option value="jedah">Jedah</option>
-		<option value="monster_hunter">Monster Hunter</option>
-		<option value="morrigan">Morrigan</option>
-		<option value="nemesis">Nemesis</option>
-		<option value="nova">Nova</option>
-		<option value="rocket_raccoon">Rocket Raccoon</option>
-		<option value="ryu">Ryu</option>
-		<option value="sigma">Sigma</option>
-		<option value="spencer">Spencer</option>
-		<option value="spiderman">Spiderman</option>
-		<option value="strider_hiryu">Strider Hiryu</option>
-		<option value="thanos">Thanos</option>
-		<option value="thor">Thor</option>
-		<option value="ultron">Ultron</option>
-		<option value="x">X</option>
-		<option value="zero">Zero</option>
 	</select>
 	
 	<h2 id="selectFrameData" class="header">Select a character to view frame data for</h2>
-	<select id="charFrameData">
+	<select id="charFrameData" onchange="getTable()">
 		<option value=""></option>
-		<option value="arthur">Arthur</option>
-		<option value="black_panther">Black Panther</option>
-		<option value="captain_america">Captain America</option>
-		<option value="captain_marvel">Captain Marvel</option>
-		<option value="chris">Chris</option>
-		<option value="chunli">Chun-li</option>
-		<option value="dante">Dante</option>
-		<option value="doctor_strange">Doctor Strange</option>
-		<option value="dormammu">Dormammu</option>
-		<option value="firebrand">Firebrand</option>
-		<option value="frank_west">Frank West</option>
-		<option value="gamora">Gamora</option>
-		<option value="ghost_rider">Ghost Rider</option>
-		<option value="haggar">Haggar</option>
-		<option value="hawkeye">Hawkeye</option>
-		<option value="hulk">Hulk</option>
-		<option value="iron_man">Iron Man</option>
-		<option value="jedah">Jedah</option>
-		<option value="monster_hunter">Monster Hunter</option>
-		<option value="morrigan">Morrigan</option>
-		<option value="nemesis">Nemesis</option>
-		<option value="nova">Nova</option>
-		<option value="rocket_raccoon">Rocket Raccoon</option>
-		<option value="ryu">Ryu</option>
-		<option value="sigma">Sigma</option>
-		<option value="spencer">Spencer</option>
-		<option value="spiderman">Spiderman</option>
-		<option value="strider_hiryu">Strider Hiryu</option>
-		<option value="thanos">Thanos</option>
-		<option value="thor">Thor</option>
-		<option value="ultron">Ultron</option>
-		<option value="x">X</option>
-		<option value="zero">Zero</option>
 	</select>
+	
+	<script>listNames();</script>
 </div>
 <div id="frameDataContainer" style="display:none">
-<?php
-
-$servername = "ktangdb.clb60p2aechx.us-east-2.rds.amazonaws.com";
-$username = "publicuser";
-$password = "password";
-$dbname = "KtangDB";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} 
-
-$sql = "SELECT * FROM Dante";
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-    while($row = $result->fetch_assoc()) {
-        echo "MoveName: " . $row["MoveName"]. "Input: " . $row["Input"]. "Damage" . $row["Damage"]. "<br>";
-    }
-} else {
-    echo "0 results";
-}
-$conn->close();
-?>
+	<table class="table table-striped">
+		<tr>
+			<th>Move Name</th>
+			<th>Input</th>
+			<th>Damage</th>
+			<th>Startup</th>
+			<th>Active</th>
+			<th>Recovery</th>
+			<th>Total</th>
+			<th>Block Advantage</th>
+			<th>Hit Advantage</th>
+			<th>Counterhit Advantage</th>
+		</tr>
+		<tr ng-repeat="x in names">
+			<td>{{x.MoveName}}</td>
+			<td>{{x.Input}}</td>
+			<td>{{x.Damage}}</td>
+			<td>{{x.Startup}}</td>
+			<td>{{x.Active}}</td>
+			<td>{{x.Recovery}}</td>
+			<td>{{x.Total}}</td>
+			<td>{{x.BlockAdvantage}}</td>
+			<td>{{x.HitAdvantage}}</td>
+			<td>{{x.CounterhitAdvantage}}</td>
+		</tr>
+	</table>
 </div>
+</div>
+<script>
+	var app = angular.module('app', []);
+	app.controller('ctrl', function($scope, $http) {
+	$scope.update = function($charValue) {
+		$http({
+			method: 'GET',
+			url: 'mvci_php.php',
+			params: {'characterValue': $charValue}
+		})
+		.then(function (response) {$scope.names = response.data.records;});
+	}
+	});
+</script>
 </body>
 </html>
