@@ -65,7 +65,7 @@ function moveToNav(){
 	$("#headerText").remove();
 	$("#selectTeam").remove();
 	$("#selectFrameData").remove();
-	
+	$("#mySelect option[value='']").attr('selected', true)
 	$("#charFrameData").appendTo("#charFD");
 	$("#charSelect1").appendTo("#team");
 	$("#charSelect2").appendTo("#team");
