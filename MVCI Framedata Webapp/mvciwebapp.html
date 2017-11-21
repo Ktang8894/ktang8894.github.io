@@ -76,8 +76,8 @@
 			<td>{{x.BlockAdvantage}}</td>
 			<td>{{x.HitAdvantage}}</td>
 			<td>{{x.CounterhitAdvantage}}</td>
-			<td><script></script></td> <!-- maybe like sql query: (SELECT BlockAdvantage FROM [Char] WHERE MoveName={{x.MoveName}} - (SELECT Startup FROM [Char1] WHERE DAT PREV VALUE - Startup > 0) -->
-			<td> </td>
+			<td>{{x.Punisher1}}</td> <!-- maybe like sql query: (SELECT BlockAdvantage FROM [Char] WHERE MoveName={{x.MoveName}} - (SELECT Startup FROM [Char1] WHERE DAT PREV VALUE - Startup > 0) -->
+			<td>{{x.Punisher2}}</td>
 		</tr>
 	</table>
 </div>
@@ -85,13 +85,15 @@
 <script>
 	var app = angular.module('app', []);
 	app.controller('ctrl', function($scope, $http) {
-	$scope.update = function($charValue) {
+	$scope.update = function($charValue, $charSelect1, $charSelect2) {
 		$http({
 			method: 'GET',
 			url: 'mvci_php.php',
 			params: {
 			'characterValue': $charValue,
-			'operationType': "frameData"
+			'operationType': "frameData",
+			'punisher1': $charSelect1,
+			'punisher2': $charSelect2
 			}
 		})
 		.then(function (response) {$scope.names = response.data.records;});

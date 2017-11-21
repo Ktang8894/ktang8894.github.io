@@ -12,7 +12,9 @@ $(document).ready(function(){
 });
 
 function getTable(){
-	angular.element($("#angularDiv")).scope().update(getCharacterVal());
+	var charSelect1 = $("#charSelect1").find(":selected").val();
+	var charSelect2 = $("#charSelect2").find(":selected").val();
+	angular.element($("#angularDiv")).scope().update(getCharacterVal(), charSelect1, charSelect2);
 }
 
 function listNames(){
