@@ -9,6 +9,20 @@ $(document).ready(function(){
 		tableLoadAnim();
 		getTable();
 	});
+	$("#charSelect1").change(function() {
+		if (getCharacterVal() != "" && moved == true) {
+			characterNameAnim();
+			tableLoadAnim();
+			getTable();
+		}
+	});
+	$("#charSelect2").change(function() {
+		if (getCharacterVal() != "" && moved == true) {
+			characterNameAnim();
+			tableLoadAnim();
+			getTable();
+		}
+	});
 });
 
 function getTable(){

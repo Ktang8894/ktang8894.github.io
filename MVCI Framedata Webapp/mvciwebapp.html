@@ -61,7 +61,6 @@
 			<th>Total</th>
 			<th>Block Advantage</th>
 			<th>Hit Advantage</th>
-			<th>Counterhit Advantage</th>
 			<th>Char 1 Punishable</th>
 			<th>Char 2 Punishable</th>
 		</tr>
@@ -75,9 +74,8 @@
 			<td>{{x.Total}}</td>
 			<td>{{x.BlockAdvantage}}</td>
 			<td>{{x.HitAdvantage}}</td>
-			<td>{{x.CounterhitAdvantage}}</td>
-			<td>{{x.Punisher1}}</td> <!-- maybe like sql query: (SELECT BlockAdvantage FROM [Char] WHERE MoveName={{x.MoveName}} - (SELECT Startup FROM [Char1] WHERE DAT PREV VALUE - Startup > 0) -->
-			<td>{{x.Punisher2}}</td>
+			<td href="#" data-toggle="tooltip" ng-attr-title="{{x.Punisher1Opening}} Frame Punish">{{x.Punisher1}}</td>
+			<td href="#" data-toggle="tooltip" ng-attr-title="{{x.Punisher2Opening}} Frame Punish">{{x.Punisher2}}</td>
 		</tr>
 	</table>
 </div>
