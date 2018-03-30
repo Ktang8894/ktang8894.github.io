@@ -107,36 +107,42 @@ function getFrameData(){
 	$sql = getSqlString($charName, $punisher1, $punisher2);
 	$result = $conn->query($sql);
 	
-	$outp = "";
-	while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
-		if ($outp != "") {$outp .= ",";}
-		$outp .= '{"MoveName":"' . $rs["MoveName"] . '",';
-		$outp .= '"Input":"' . $rs["Input"] . '",';
-		$outp .= '"Damage":"' . $rs["Damage"] . '",';
-		$outp .= '"Startup":"' . $rs["Startup"] . '",';
-		$outp .= '"Active":"' . $rs["Active"] . '",';
-		$outp .= '"Recovery":"' . $rs["Recovery"] . '",';
-		$outp .= '"Total":"' . $rs["Total"] . '",';
-		$outp .= '"BlockAdvantage":"' . $rs["BlockAdvantage"] . '",';
-		$outp .= '"HitAdvantage":"' . $rs["HitAdvantage"];
-		if ($punisher1 != "") {
-			if ($rs["Punishable1"] != "") {
-				$outp .= '","Punisher1":"' . $rs["PunisherMove1"];
-				$outp .= '","Punisher1Opening":"' . $rs["Punishable1"];
-			}
-		}
-		if ($punisher2 != "") {
-			if ($rs["Punishable2"] != "") {
-				$outp .= '","Punisher2":"' . $rs["PunisherMove2"];
-				$outp .= '","Punisher2Opening":"' . $rs["Punishable2"];
-			}
-		}
-		$outp .= '"}';
+	if ($result->fetch_array(MYSQLI_ASSOC) == "") {
+		echo($charName . "'s frame data is not currently available.");
 	}
-	$outp ='{"records":['.$outp.']}';
-	$conn->close();
 	
-	echo($outp);
+	else {
+		$outp = "";
+		while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
+			if ($outp != "") {$outp .= ",";}
+			$outp .= '{"MoveName":"' . $rs["MoveName"] . '",';
+			$outp .= '"Input":"' . $rs["Input"] . '",';
+			$outp .= '"Damage":"' . $rs["Damage"] . '",';
+			$outp .= '"Startup":"' . $rs["Startup"] . '",';
+			$outp .= '"Active":"' . $rs["Active"] . '",';
+			$outp .= '"Recovery":"' . $rs["Recovery"] . '",';
+			$outp .= '"Total":"' . $rs["Total"] . '",';
+			$outp .= '"BlockAdvantage":"' . $rs["BlockAdvantage"] . '",';
+			$outp .= '"HitAdvantage":"' . $rs["HitAdvantage"];
+			if ($punisher1 != "") {
+				if ($rs["Punishable1"] != "") {
+					$outp .= '","Punisher1":"' . $rs["PunisherMove1"];
+					$outp .= '","Punisher1Opening":"' . $rs["Punishable1"];
+				}
+			}
+			if ($punisher2 != "") {
+				if ($rs["Punishable2"] != "") {
+					$outp .= '","Punisher2":"' . $rs["PunisherMove2"];
+					$outp .= '","Punisher2Opening":"' . $rs["Punishable2"];
+				}
+			}
+			$outp .= '"}';
+		}
+		$outp ='{"records":['.$outp.']}';
+		$conn->close();
+		
+		echo($outp);
+	}
 }
 
 getFrameData();

@@ -1,3 +1,8 @@
+body {
+	background-color: white;
+	color: black;
+}
+
 body, select, option {
 	font-family: "exo";
 }
@@ -9,6 +14,7 @@ h1 {
 
 select {
 	width: 15%;
+	color: black;
 }
 
 option {
@@ -17,11 +23,11 @@ option {
 }
 
 /* Homepage */
-.container{
+#mainContainer{
 	padding: 180px 0;
 	text-align: center;
 	position: relative;
-	background-color: white;
+	display:none;
 }
 
 .header {
@@ -39,6 +45,13 @@ option {
 	left: 10px;
 	top: -10px;
 	position: fixed;
+}
+
+#hoverMessage {
+	top: 5px;
+	right: 80px;
+	text-align: center;
+	position:fixed;
 }
 
 .navSelect{
@@ -80,8 +93,8 @@ option {
 th {
 	top: 49px;
 	position: sticky;
-	background-color: grey;
 	color: white;
+	background-color: gray;
 }
 
 td, th {

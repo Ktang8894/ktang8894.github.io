@@ -1,4 +1,5 @@
 $(document).ready(function(){
+	$("#mainContainer").fadeIn("slow");
 	var moved = false;
 	$("#charFrameData").change(function(){
 		if (moved == false) {

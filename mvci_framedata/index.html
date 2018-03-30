@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
-	<title>MVC:I Frame Data</title>
+	<title>MvC:I Frame Data</title>
 	
 	<script src="jquery-3.2.1.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
@@ -26,10 +26,13 @@
 	<span id="team" class="navSpan">
 		<h2 class="navText">Team:</h2>
 	</span>
+	<span>
+		<p id="hoverMessage">Hover over your move </br> to get the punish window</p>
+	</span>
 </nav>
 
 <div id="angularDiv" ng-app="app" ng-controller="ctrl">
-<div id="mainContainer" class="container">
+<div id="mainContainer">
 	<h1 id="headerText" class="header">MvC:I Frame Data</h1>
 	<h2 id="selectTeam" class="header">Select your team (OPTIONAL)</h2>
 	<select id="charSelect1" onchange="teamCharSelected('charSelect1', 'charSelect2')">

@@ -1,2 +1,2 @@
 # ktang8894.github.io
-Website still in early development!
+Take a look at my portfolio at https://ktang8894.github.io/
